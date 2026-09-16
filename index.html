@@ -1,12 +1,216 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Nizi Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nizi Login</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #001f3f, #0066cc, #001f3f);
+    color: white;
+    overflow: hidden;
+}
+
+/* Title */
+.title {
+    position: absolute;
+    top: 55px;
+    width: 100%;
+    text-align: center;
+    font-size: 27px;
+    font-weight: bold;
+    color: #e8fbff;
+
+    text-shadow:
+        0 0 5px #8eeaff,
+        0 0 12px #8eeaff,
+        0 0 20px #ffb6cc;
+
+    animation: glow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 5px #8eeaff,
+            0 0 12px #8eeaff;
+    }
+
+    to {
+        text-shadow:
+            0 0 8px #8eeaff,
+            0 0 18px #ffb6cc,
+            0 0 30px #ffb6cc;
+    }
+}
+
+/* Login Box */
+.login-box {
+    width: 90%;
+    max-width: 360px;
+    padding: 35px 25px;
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 0 25px rgba(142, 234, 255, 0.25),
+        0 0 25px rgba(255, 182, 204, 0.15);
+
+    text-align: center;
+}
+
+.login-box h2 {
+    margin-bottom: 25px;
+}
+
+.input {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+
+    border: none;
+    outline: none;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+.input::placeholder {
+    color: #ddd;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: linear-gradient(90deg, #6edfff, #ffabc5);
+    color: #001f3f;
+
+    font-weight: bold;
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.04);
+    box-shadow:
+        0 0 12px #8eeaff,
+        0 0 20px #ffb6cc;
+}
+
+/* Home */
+#home {
+    display: none;
+    text-align: center;
+}
+
+#home h1 {
+    margin-bottom: 15px;
+}
+
+.logout-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>Hello My Friend 👋</h1>
-    <p>This is my website.</p>
+<!-- Login Title -->
+<h1 class="title">ɴɪᴢɪ ʜɪ ɢᴜʏs ɪᴀᴍ ᴜᴋ</h1>
+
+<!-- Login -->
+<div class="login-box" id="login">
+
+    <h2>Login</h2>
+
+    <input
+        class="input"
+        type="text"
+        id="username"
+        placeholder="Username"
+    >
+
+    <input
+        class="input"
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+    <button class="login-btn" onclick="loginUser()">
+        LOGIN
+    </button>
+
+</div>
+
+<!-- Home -->
+<div id="home">
+
+    <h1>Welcome Nizi 👋</h1>
+    <p>Login Successful!</p>
+
+    <br>
+
+    <button class="logout-btn" onclick="logoutUser()">
+        Logout
+    </button>
+
+</div>
+
+<script>
+function loginUser() {
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (username !== "" && password !== "") {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("home").style.display = "block";
+
+    } else {
+
+        alert("Please enter Username and Password");
+
+    }
+}
+
+function logoutUser() {
+
+    document.getElementById("home").style.display = "none";
+    document.getElementById("login").style.display = "block";
+
+}
+</script>
 
 </body>
 </html>

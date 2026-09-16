@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Nizi Login</title>
+<title>Nizi - My Website</title>
 
 <style>
 * {
@@ -15,30 +14,33 @@
 
 body {
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(135deg, #001f3f, #0066cc, #001f3f);
+    overflow-x: hidden;
+}
+
+/* ---------- LOGIN ---------- */
+
+#loginPage {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #001f3f, #0066cc, #001f3f);
-    color: white;
-    overflow: hidden;
+    position: relative;
 }
 
-/* Title */
 .title {
     position: absolute;
     top: 55px;
     width: 100%;
     text-align: center;
     font-size: 27px;
-    font-weight: bold;
-    color: #e8fbff;
-
+    color: #eafcff;
     text-shadow:
-        0 0 5px #8eeaff,
-        0 0 12px #8eeaff,
-        0 0 20px #ffb6cc;
-
+        0 0 6px #8eeaff,
+        0 0 14px #8eeaff,
+        0 0 22px #ffb6cc;
     animation: glow 2.5s ease-in-out infinite alternate;
 }
 
@@ -48,7 +50,6 @@ body {
             0 0 5px #8eeaff,
             0 0 12px #8eeaff;
     }
-
     to {
         text-shadow:
             0 0 8px #8eeaff,
@@ -57,24 +58,22 @@ body {
     }
 }
 
-/* Login Box */
 .login-box {
     width: 90%;
     max-width: 360px;
     padding: 35px 25px;
     border-radius: 20px;
+    text-align: center;
 
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
 
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
 
     box-shadow:
-        0 0 25px rgba(142, 234, 255, 0.25),
-        0 0 25px rgba(255, 182, 204, 0.15);
-
-    text-align: center;
+        0 0 25px rgba(142,234,255,0.25),
+        0 0 25px rgba(255,182,204,0.15);
 }
 
 .login-box h2 {
@@ -98,104 +97,233 @@ body {
     color: #ddd;
 }
 
+.login-btn,
+.menu-btn {
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
 .login-btn {
     width: 100%;
     padding: 13px;
     margin-top: 15px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: linear-gradient(90deg, #6edfff, #ffabc5);
+    background: linear-gradient(90deg, #8eeaff, #ffb6cc);
     color: #001f3f;
-
-    font-weight: bold;
-    font-size: 16px;
-
-    cursor: pointer;
-    transition: 0.3s;
 }
 
-.login-btn:hover {
-    transform: scale(1.04);
+.login-btn:hover,
+.menu-btn:hover {
+    transform: scale(1.05);
     box-shadow:
         0 0 12px #8eeaff,
         0 0 20px #ffb6cc;
 }
 
-/* Home */
-#home {
+/* ---------- HOME ---------- */
+
+#homePage {
     display: none;
+    min-height: 100vh;
+    padding: 30px 20px;
     text-align: center;
 }
 
-#home h1 {
-    margin-bottom: 15px;
+.home-title {
+    margin-top: 20px;
+    font-size: 34px;
+    animation: float 3s ease-in-out infinite;
 }
 
-.logout-btn {
-    padding: 12px 25px;
-    border: none;
+@keyframes float {
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.welcome {
+    margin-top: 10px;
+    color: #dffaff;
+}
+
+/* ---------- MENU ---------- */
+
+.menu {
+    margin: 35px auto;
+    max-width: 500px;
+}
+
+.menu-btn {
+    width: 100%;
+    padding: 15px;
+    margin: 8px 0;
+
+    color: white;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* ---------- ABOUT ---------- */
+
+#about {
+    display: none;
+    max-width: 500px;
+    margin: 25px auto;
+    padding: 25px;
+
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+
+    backdrop-filter: blur(15px);
+}
+
+#about h2 {
+    margin-bottom: 20px;
+}
+
+.detail {
+    padding: 12px;
+    margin: 8px 0;
     border-radius: 10px;
-    cursor: pointer;
+    background: rgba(255,255,255,0.1);
+}
+
+.logout {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #ffb6cc;
+    color: #001f3f;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 400px) {
+    .title {
+        font-size: 22px;
+        padding: 0 10px;
+    }
+
+    .home-title {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Login Title -->
-<h1 class="title">ɴɪᴢɪ ʜɪ ɢᴜʏs ɪᴀᴍ ᴜᴋ</h1>
+<!-- LOGIN PAGE -->
 
-<!-- Login -->
-<div class="login-box" id="login">
+<section id="loginPage">
 
-    <h2>Login</h2>
+    <h1 class="title">
+        ɴɪᴢɪ ʜɪ ɢᴜʏs ɪᴀᴍ ᴜᴋ
+    </h1>
 
-    <input
-        class="input"
-        type="text"
-        id="username"
-        placeholder="Username"
-    >
+    <div class="login-box">
 
-    <input
-        class="input"
-        type="password"
-        id="password"
-        placeholder="Password"
-    >
+        <h2>Login</h2>
 
-    <button class="login-btn" onclick="loginUser()">
-        LOGIN
-    </button>
+        <input
+            class="input"
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
 
-</div>
+        <input
+            class="input"
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
 
-<!-- Home -->
-<div id="home">
+        <button class="login-btn" onclick="loginUser()">
+            LOGIN
+        </button>
 
-    <h1>Welcome Nizi 👋</h1>
-    <p>Login Successful!</p>
+    </div>
 
-    <br>
+</section>
 
-    <button class="logout-btn" onclick="logoutUser()">
+
+<!-- HOME PAGE -->
+
+<section id="homePage">
+
+    <h1 class="home-title">
+        Hollo My Friend
+    </h1>
+
+    <p class="welcome">
+        I Am Python 🐍
+    </p>
+
+    <div class="menu">
+
+        <button class="menu-btn" onclick="showAbout()">
+            👤 About Me
+        </button>
+
+        <button class="menu-btn" onclick="showMessage()">
+            ✨ Details
+        </button>
+
+    </div>
+
+
+    <!-- ABOUT ME -->
+
+    <div id="about">
+
+        <h2>About Me</h2>
+
+        <div class="detail">
+            <b>Name:</b> Nizi
+        </div>
+
+        <div class="detail">
+            <b>Age:</b> 15
+        </div>
+
+        <div class="detail">
+            <b>Skills:</b> Ai Using, Website Creating, App Making
+        </div>
+
+        <div class="detail">
+            <b>FC:</b> Blue
+        </div>
+
+    </div>
+
+
+    <button class="menu-btn logout" onclick="logoutUser()">
         Logout
     </button>
 
-</div>
+</section>
+
 
 <script>
+
 function loginUser() {
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username =
+        document.getElementById("username").value;
+
+    const password =
+        document.getElementById("password").value;
 
     if (username !== "" && password !== "") {
 
-        document.getElementById("login").style.display = "none";
-        document.getElementById("home").style.display = "block";
+        document.getElementById("loginPage").style.display =
+            "none";
+
+        document.getElementById("homePage").style.display =
+            "block";
 
     } else {
 
@@ -204,12 +332,47 @@ function loginUser() {
     }
 }
 
-function logoutUser() {
 
-    document.getElementById("home").style.display = "none";
-    document.getElementById("login").style.display = "block";
+function showAbout() {
+
+    const about =
+        document.getElementById("about");
+
+    if (about.style.display === "block") {
+
+        about.style.display = "none";
+
+    } else {
+
+        about.style.display = "block";
+
+    }
+}
+
+
+function showMessage() {
+
+    alert("Welcome to Nizi Website ✨");
 
 }
+
+
+function logoutUser() {
+
+    document.getElementById("homePage").style.display =
+        "none";
+
+    document.getElementById("loginPage").style.display =
+        "flex";
+
+    document.getElementById("username").value = "";
+
+    document.getElementById("password").value = "";
+
+    document.getElementById("about").style.display =
+        "none";
+}
+
 </script>
 
 </body>

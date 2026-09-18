@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #001f3f, #0066cc, #001f3f);
+    color: white;
+    min-height: 100vh;
+    text-align: center;
+}
+
+#homePage {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.krishna-photo {
+    width: 280px;
+    height: 280px;
+    margin: 30px auto;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    border: 4px solid #00aaff;
+    box-shadow: 0 0 25px #00aaff,
+                0 0 60px #0066ff;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+.krishna-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.home-title {
+    font-size: 45px;
+    margin: 20px 0 10px;
+}
+
+.welcome {
+    font-size: 24px;
+    color: #00c8ff;
+}
+
+.menu {
+    margin-top: 30px;
+}
+
+.menu-btn {
+    display: block;
+    width: 250px;
+    margin: 12px auto;
+    padding: 15px;
+
+    border: 1px solid #00aaff;
+    border-radius: 30px;
+
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+
+    font-size: 17px;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: #008cff;
+    transform: translateY(-3px);
+}
+
+#about {
+    margin: 40px auto;
+    max-width: 500px;
+    padding: 25px;
+
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.detail {
+    margin: 12px 0;
+}
+
+.logout {
+    margin-top: 25px;
+}
+
+@media (max-width: 600px) {
+
+    .krishna-photo {
+        width: 220px;
+        height: 220px;
+    }
+
+    .home-title {
+        font-size: 35px;
+    }
+
+    .welcome {
+        font-size: 20px;
+    }
+}

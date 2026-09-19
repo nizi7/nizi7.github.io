@@ -12,6 +12,31 @@
     box-sizing: border-box;
 }
 
+<button onclick="playWelcome()" id="welcomeBtn">
+    🔊 Welcome
+</button>
+
+<script>
+function playWelcome() {
+    const welcomeText =
+        "Welcome to Nizi Web. " +
+        "Hello, my friend! I am Nizi. " +
+        "Welcome to my personal website. " +
+        "Here, you can explore my skills, projects, and creations. " +
+        "Thank you for visiting Nizi Web. Have a great day!";
+
+    const speech = new SpeechSynthesisUtterance(welcomeText);
+
+    speech.lang = "en-US";
+    speech.volume = 1;
+    speech.rate = 0.9;
+    speech.pitch = 1;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(speech);
+}
+</script>
+
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;

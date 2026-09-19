@@ -12,31 +12,6 @@
     box-sizing: border-box;
 }
 
-<button onclick="playWelcome()" id="welcomeBtn">
-    🔊 Welcome
-</button>
-
-<script>
-function playWelcome() {
-    const welcomeText =
-        "Welcome to Nizi Web. " +
-        "Hello, my friend! I am Nizi. " +
-        "Welcome to my personal website. " +
-        "Here, you can explore my skills, projects, and creations. " +
-        "Thank you for visiting Nizi Web. Have a great day!";
-
-    const speech = new SpeechSynthesisUtterance(welcomeText);
-
-    speech.lang = "en-US";
-    speech.volume = 1;
-    speech.rate = 0.9;
-    speech.pitch = 1;
-
-    speechSynthesis.cancel();
-    speechSynthesis.speak(speech);
-}
-</script>
-
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
@@ -69,51 +44,13 @@ body {
     animation: glow 2.5s ease-in-out infinite alternate;
 }
 
-@keyframes glow {
-    from {
-        text-shadow:
-            0 0 5px #8eeaff,
-            0 0 12px #8eeaff;
-    }
-    to {
-        text-shadow:
-            0 0 8px #8eeaff,
-            0 0 18px #ffb6cc,
-            0 0 30px #ffb6cc;
-    }
-}
-
-.login-box {
-    width: 90%;
-    max-width: 360px;
-    padding: 35px 25px;
-    border-radius: 20px;
-    text-align: center;
-
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 0 25px rgba(142,234,255,0.25),
-        0 0 25px rgba(255,182,204,0.15);
-}
-
-.login-box h2 {
-    margin-bottom: 25px;
-}
-
 .input {
     width: 100%;
     padding: 13px;
     margin: 10px 0;
-
     border: none;
     outline: none;
     border-radius: 10px;
-
     background: rgba(255,255,255,0.15);
     color: white;
 }
@@ -184,7 +121,6 @@ body {
     width: 100%;
     padding: 15px;
     margin: 8px 0;
-
     color: white;
     background: rgba(255,255,255,0.13);
     border: 1px solid rgba(255,255,255,0.2);
@@ -197,11 +133,9 @@ body {
     max-width: 500px;
     margin: 25px auto;
     padding: 25px;
-
     border-radius: 20px;
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.22);
-
     backdrop-filter: blur(15px);
 }
 
@@ -221,6 +155,27 @@ body {
     padding: 12px 25px;
     background: #ffb6cc;
     color: #001f3f;
+}
+
+/* ---------- WELCOME BUTTON ---------- */
+
+#welcomeBtn {
+    padding: 12px 22px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: linear-gradient(90deg, #8eeaff, #ffb6cc);
+    color: #001f3f;
+    transition: 0.3s;
+}
+
+#welcomeBtn:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 0 12px #8eeaff,
+        0 0 20px #ffb6cc;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -286,6 +241,12 @@ body {
         I Am Python 🐍
     </p>
 
+    <!-- WELCOME SPEECH BUTTON -->
+
+    <button onclick="playWelcome()" id="welcomeBtn">
+        🔊 Welcome
+    </button>
+
     <div class="menu">
 
         <button class="menu-btn" onclick="showAbout()">
@@ -297,7 +258,6 @@ body {
         </button>
 
     </div>
-
 
     <!-- ABOUT ME -->
 
@@ -323,13 +283,11 @@ body {
 
     </div>
 
-
     <button class="menu-btn logout" onclick="logoutUser()">
         Logout
     </button>
 
 </section>
-
 
 <script>
 
@@ -390,11 +348,34 @@ function logoutUser() {
         "flex";
 
     document.getElementById("username").value = "";
-
     document.getElementById("password").value = "";
 
     document.getElementById("about").style.display =
         "none";
+}
+
+
+/* ---------- WELCOME SPEECH ---------- */
+
+function playWelcome() {
+
+    const welcomeText =
+        "Welcome to Nizi Web. " +
+        "Hello, my friend! I am Nizi. " +
+        "Welcome to my personal website. " +
+        "Here, you can explore my skills, projects, and creations. " +
+        "Thank you for visiting Nizi Web. Have a great day!";
+
+    const speech =
+        new SpeechSynthesisUtterance(welcomeText);
+
+    speech.lang = "en-US";
+    speech.volume = 1;
+    speech.rate = 0.9;
+    speech.pitch = 1;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(speech);
 }
 
 </script>

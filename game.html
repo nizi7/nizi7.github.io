@@ -357,7 +357,136 @@ ninja.position.set(0, 0, 0);
 
 scene.add(ninja);
 
+// NEW NINJA CHARACTER
+ninja.visible = false;
 
+ninja = new THREE.Group();
+
+// Materials
+const ninjaSuitMat = new THREE.MeshStandardMaterial({
+  color: 0x123a6b,
+  roughness: 0.7
+});
+
+const ninjaDarkMat = new THREE.MeshStandardMaterial({
+  color: 0x101820,
+  roughness: 0.8
+});
+
+const ninjaRedMat = new THREE.MeshStandardMaterial({
+  color: 0xff3355,
+  emissive: 0x330011
+});
+
+const ninjaGlowMat = new THREE.MeshStandardMaterial({
+  color: 0x00aaff,
+  emissive: 0x00aaff,
+  emissiveIntensity: 2
+});
+
+// Body
+const newBody = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.38, 0.48, 1.05, 12),
+  ninjaSuitMat
+);
+newBody.position.y = 1.15;
+ninja.add(newBody);
+
+// Head
+const newHead = new THREE.Mesh(
+  new THREE.SphereGeometry(0.42, 20, 20),
+  ninjaDarkMat
+);
+newHead.position.y = 1.95;
+ninja.add(newHead);
+
+// Face mask
+const mask = new THREE.Mesh(
+  new THREE.BoxGeometry(0.55, 0.25, 0.18),
+  ninjaDarkMat
+);
+mask.position.set(0, 1.82, -0.38);
+ninja.add(mask);
+
+// Glowing eyes
+const glowEyes = new THREE.Mesh(
+  new THREE.BoxGeometry(0.32, 0.07, 0.05),
+  ninjaGlowMat
+);
+glowEyes.position.set(0, 1.99, -0.40);
+ninja.add(glowEyes);
+
+// Left arm
+const leftArm = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.12, 0.14, 0.85, 10),
+  ninjaSuitMat
+);
+leftArm.position.set(-0.5, 1.15, 0);
+leftArm.rotation.z = -0.15;
+ninja.add(leftArm);
+
+// Right arm
+const rightArm = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.12, 0.14, 0.85, 10),
+  ninjaSuitMat
+);
+rightArm.position.set(0.5, 1.15, 0);
+rightArm.rotation.z = 0.15;
+ninja.add(rightArm);
+
+// Belt
+const belt = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.42, 0.42, 0.12, 12),
+  ninjaRedMat
+);
+belt.position.y = 0.75;
+ninja.add(belt);
+
+// Left leg
+const leftLeg = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.14, 0.16, 0.75, 10),
+  ninjaDarkMat
+);
+leftLeg.position.set(-0.2, 0.35, 0);
+ninja.add(leftLeg);
+
+// Right leg
+const rightLeg = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.14, 0.16, 0.75, 10),
+  ninjaDarkMat
+);
+rightLeg.position.set(0.2, 0.35, 0);
+ninja.add(rightLeg);
+
+// Scarf
+const scarf = new THREE.Mesh(
+  new THREE.BoxGeometry(0.85, 0.12, 0.12),
+  ninjaRedMat
+);
+scarf.position.set(0, 1.62, -0.25);
+ninja.add(scarf);
+
+// Character shadow
+const shadowMat = new THREE.MeshBasicMaterial({
+  color: 0x000000,
+  transparent: true,
+  opacity: 0.35
+});
+
+const ninjaShadow = new THREE.Mesh(
+  new THREE.CircleGeometry(0.65, 24),
+  shadowMat
+);
+
+ninjaShadow.rotation.x = -Math.PI / 2;
+ninjaShadow.position.y = 0.01;
+ninjaShadow.position.z = 0;
+ninja.add(ninjaShadow);
+
+// Position
+ninja.position.set(0, 0, 0);
+
+scene.add(ninja);
 // ENEMY
 const enemyGeometry = new THREE.BoxGeometry(
   1,

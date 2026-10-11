@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nizi - My Website</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
 * {
@@ -12,15 +13,19 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(135deg, #001f3f, #0066cc, #001f3f);
+    background:
+        radial-gradient(ellipse at 10% 10%, #006bff, transparent 38%),
+        radial-gradient(ellipse at 90% 75%, #003bff, transparent 40%),
+        linear-gradient(135deg, #00102f, #002b70, #00102f);
     overflow-x: hidden;
 }
 
-/* ---------- LOGIN ---------- */
+/* LOGIN */
 
 #loginPage {
     min-height: 100vh;
@@ -28,167 +33,304 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 100px 20px 30px;
 }
 
 .title {
     position: absolute;
-    top: 55px;
+    top: 45px;
     width: 100%;
+    padding: 0 10px;
     text-align: center;
-    font-size: 27px;
+    font-size: clamp(21px, 5vw, 30px);
     color: #eafcff;
-    text-shadow:
-        0 0 6px #8eeaff,
-        0 0 14px #8eeaff,
-        0 0 22px #ffb6cc;
-    animation: glow 2.5s ease-in-out infinite alternate;
+    text-shadow: 0 0 8px #00dfff, 0 0 20px #ff50ed;
+    animation: glow 2s infinite alternate;
+}
+
+.login-box {
+    width: min(400px, 100%);
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid #00dfff;
+    border-radius: 25px;
+    background: #ffffff12;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px #007bff, 0 0 35px #a000ff;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #7df6ff;
 }
 
 .input {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     margin: 10px 0;
-    border: none;
+    border: 1px solid #61dfff;
+    border-radius: 12px;
     outline: none;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.15);
+    background: #ffffff14;
     color: white;
+    font-size: 16px;
 }
 
 .input::placeholder {
     color: #ddd;
 }
 
-.login-btn,
-.menu-btn {
-    border: none;
-    border-radius: 10px;
+.login-btn, .menu-btn, .close-btn {
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
+    font-family: inherit;
 }
 
 .login-btn {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     margin-top: 15px;
-    background: linear-gradient(90deg, #8eeaff, #ffb6cc);
-    color: #001f3f;
+    border: none;
+    border-radius: 30px;
+    color: #082454;
+    background: linear-gradient(100deg, #00eaff, #ff8bd5);
+    font-size: 18px;
 }
 
-.login-btn:hover,
-.menu-btn:hover {
-    transform: scale(1.05);
-    box-shadow:
-        0 0 12px #8eeaff,
-        0 0 20px #ffb6cc;
-}
-
-/* ---------- HOME ---------- */
+/* HOME */
 
 #homePage {
     display: none;
     min-height: 100vh;
-    padding: 30px 20px;
+    padding: 25px 18px 40px;
     text-align: center;
 }
 
+.container {
+    width: 100%;
+    max-width: 710px;
+    margin: auto;
+}
+
 .home-title {
-    margin-top: 20px;
-    font-size: 34px;
+    margin: 25px 0 18px;
+    font-size: clamp(35px, 7vw, 62px);
+    background: linear-gradient(90deg, white, #00eaff, #ff43ed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 10px #008cff);
     animation: float 3s ease-in-out infinite;
 }
 
-@keyframes float {
-    50% {
-        transform: translateY(-8px);
-    }
+.subtitle {
+    font-size: clamp(25px, 5vw, 40px);
+    margin-bottom: 36px;
 }
 
-.welcome {
-    margin-top: 10px;
-    color: #dffaff;
+#welcomeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: min(360px, 90%);
+    margin: 0 auto 42px;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(100deg, #00dfff, #168cff, #ff70d5);
+    box-shadow: 0 0 22px #00cfff;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* ---------- MENU ---------- */
+/* NEON MENU */
 
 .menu {
-    margin: 35px auto;
-    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    margin: 25px auto 0;
 }
 
-.menu-btn {
+.menu-btn, .game-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
     width: 100%;
-    padding: 15px;
-    margin: 8px 0;
+    min-height: 100px;
+    padding: 15px 20px;
+    border: 3px solid transparent;
+    border-radius: 65px;
     color: white;
-    background: rgba(255,255,255,0.13);
-    border: 1px solid rgba(255,255,255,0.2);
+    background:
+        linear-gradient(110deg, #007fff, #003bce 65%, #8d00ff)
+        padding-box,
+        linear-gradient(100deg, #00f5ff, white, #ff37ef)
+        border-box;
+    box-shadow: 0 0 12px #00eaff, 0 0 27px #007bff;
+    font-size: clamp(19px, 4.5vw, 31px);
+    transition: transform .25s, box-shadow .25s;
+    animation: glow 2.5s infinite alternate;
 }
 
-/* ---------- ABOUT ---------- */
+.menu-btn:hover, .game-btn:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 20px #00eaff, 0 0 40px #ff37ef;
+}
 
-#about {
+.menu-icon {
+    flex: 0 0 20%;
+    text-align: center;
+    font-size: 37px;
+}
+
+.separator {
+    width: 2px;
+    height: 42px;
+    flex-shrink: 0;
+    background: #ffffff80;
+}
+
+.menu-label {
+    flex: 1;
+    text-align: left;
+}
+
+.arrow {
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.game-btn {
+    text-decoration: none;
+}
+
+.game-label {
+    background: linear-gradient(90deg, #00f5ff, #ff50ed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    overflow-wrap: anywhere;
+}
+
+/* DETAILS PANELS */
+
+.panel {
     display: none;
-    max-width: 500px;
-    margin: 25px auto;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.22);
-    backdrop-filter: blur(15px);
+    width: 100%;
+    margin: 30px auto 0;
+    padding: 25px 20px;
+    border: 2px solid #00dfff;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #062e70ee, #18094fee);
+    box-shadow: 0 0 22px #00cfff, 0 0 30px #9c00ff;
+    text-align: center;
+    animation: appear .3s ease;
 }
 
-#about h2 {
+.panel.active {
+    display: block;
+}
+
+.panel h2 {
     margin-bottom: 20px;
+    color: #75f5ff;
+    font-size: 28px;
 }
 
 .detail {
-    padding: 12px;
-    margin: 8px 0;
+    padding: 14px 12px;
+    margin: 10px 0;
+    border: 1px solid #54cfff80;
+    border-radius: 13px;
+    background: #ffffff0d;
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+/* NCP MINI PICTURES */
+
+.ncp-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.ncp-gallery img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border: 2px solid #00eaff;
     border-radius: 10px;
-    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 10px #00cfff;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 30px;
+    color: #092454;
+    background: linear-gradient(90deg, #00eaff, #ff70d5);
+    font-size: 17px;
 }
 
 .logout {
-    margin-top: 25px;
-    padding: 12px 25px;
-    background: #ffb6cc;
-    color: #001f3f;
-}
-
-/* ---------- WELCOME BUTTON ---------- */
-
-#welcomeBtn {
-    padding: 12px 22px;
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 94%;
+    min-height: 85px;
+    margin: 45px auto 20px;
     border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-    background: linear-gradient(90deg, #8eeaff, #ffb6cc);
-    color: #001f3f;
-    transition: 0.3s;
+    border-radius: 28px;
+    background: linear-gradient(100deg, #ff9ad9, #ff80bb);
+    color: #082454;
+    box-shadow: none;
+    font-size: 26px;
 }
 
-#welcomeBtn:hover {
-    transform: scale(1.05);
-    box-shadow:
-        0 0 12px #8eeaff,
-        0 0 20px #ffb6cc;
+/* ANIMATIONS */
+
+@keyframes glow {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.15); }
 }
 
-/* ---------- RESPONSIVE ---------- */
+@keyframes float {
+    50% { transform: translateY(-7px); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 400px) {
-    .title {
-        font-size: 22px;
-        padding: 0 10px;
+    #homePage { padding: 20px 14px 30px; }
+
+    .menu { gap: 24px; }
+
+    .menu-btn, .game-btn {
+        min-height: 85px;
+        padding: 12px;
+        gap: 9px;
     }
 
-    .home-title {
-        font-size: 28px;
-    }
+    .menu-icon { font-size: 29px; }
+    .arrow { font-size: 33px; }
+    .separator { height: 35px; }
+    .logout { min-height: 72px; font-size: 23px; }
 }
 </style>
 </head>
@@ -198,170 +340,179 @@ body {
 <!-- LOGIN PAGE -->
 
 <section id="loginPage">
-
-    <h1 class="title">
-        ɴɪᴢɪ ʜɪ ɢᴜʏs ɪᴀᴍ ᴜᴋ
-    </h1>
+    <h1 class="title">ɴɪᴢɪ ʜɪ ɢᴜʏs ɪᴀᴍ ᴜᴋ</h1>
 
     <div class="login-box">
-
         <h2>Login</h2>
 
-        <input
-            class="input"
-            type="text"
-            id="username"
-            placeholder="Username"
-        >
+        <input class="input" type="text"
+               id="username" placeholder="Username"
+               autocomplete="username">
 
-        <input
-            class="input"
-            type="password"
-            id="password"
-            placeholder="Password"
-        >
+        <input class="input" type="password"
+               id="password" placeholder="Password"
+               autocomplete="current-password">
 
         <button class="login-btn" onclick="loginUser()">
             LOGIN
         </button>
-
     </div>
-
 </section>
 
 <!-- HOME PAGE -->
 
 <section id="homePage">
+<div class="container">
 
-    <h1 class="home-title">
-        Hollo My Friend
-    </h1>
-
-    <p class="welcome">
-        I Am Python 🐍
-    </p>
-
-    <!-- WELCOME SPEECH BUTTON -->
+    <h1 class="home-title">Hollo My Friend</h1>
+    <p class="subtitle">I Am Python 🐍</p>
 
     <button onclick="playWelcome()" id="welcomeBtn">
-        🔊 Welcome
+        <span>👤</span><span>│</span><span>Welcome</span>
     </button>
 
-    <div class="menu">
+    <nav class="menu">
 
-        <button class="menu-btn" onclick="showAbout()">
-            👤 About Me
+        <button class="menu-btn" onclick="togglePanel('about')">
+            <span class="menu-icon">✨</span>
+            <span class="separator"></span>
+            <span class="menu-label">About Me</span>
+            <span class="arrow">›</span>
         </button>
 
-        <button class="menu-btn" onclick="showMessage()">
-            ✨ Details
+        <button class="menu-btn" onclick="togglePanel('details')">
+            <span class="menu-icon">✨</span>
+            <span class="separator"></span>
+            <span class="menu-label">Details</span>
+            <span class="arrow">›</span>
         </button>
 
-    </div>
+        <button class="menu-btn" onclick="togglePanel('skill')">
+            <span class="menu-icon">&lt;/&gt;</span>
+            <span class="separator"></span>
+            <span class="menu-label">Skill</span>
+            <span class="arrow">›</span>
+        </button>
 
+        <button class="menu-btn" onclick="togglePanel('ncp')">
+            <span class="menu-icon">▧</span>
+            <span class="separator"></span>
+            <span class="menu-label">NCP</span>
+            <span class="arrow">›</span>
+        </button>
 
-    <a href="game.html" class="game-btn">
-  🎮 Play Nizi Ninja 3D
-</a>
+        <a href="game.html" class="menu-btn game-btn">
+            <span class="menu-icon">🎮</span>
+            <span class="separator"></span>
+            <span class="menu-label game-label">
+                Play Nizi Ninja 3D
+            </span>
+            <span class="arrow">›</span>
+        </a>
+
+    </nav>
+
     <!-- ABOUT ME -->
 
-    <div id="about">
+    <section class="panel" id="about">
+        <h2>✨ About Me</h2>
+        <div class="detail"><b>Name:</b> Nizi</div>
+        <div class="detail"><b>FC:</b> Blue</div>
+        <button class="close-btn" onclick="closePanels()">Close</button>
+    </section>
 
-        <h2>About Me</h2>
+    <!-- DETAILS -->
 
-        <div class="detail">
-            <b>Name:</b> Nizi
+    <section class="panel" id="details">
+        <h2>✨ Details</h2>
+        <div class="detail"><b>Name:</b> Nizi</div>
+        <div class="detail"><b>Age:</b> 15</div>
+        <div class="detail"><b>Favourite Colour:</b> Blue</div>
+        <div class="detail"><b>Website:</b> Nizi</div>
+        <button class="close-btn" onclick="closePanels()">Close</button>
+    </section>
+
+    <!-- SKILLS -->
+
+    <section class="panel" id="skill">
+        <h2>💻 My Skills</h2>
+        <div class="detail">AI Using</div>
+        <div class="detail">Website Creating</div>
+        <div class="detail">App Making</div>
+        <button class="close-btn" onclick="closePanels()">Close</button>
+    </section>
+
+    <!-- NCP GALLERY -->
+
+    <section class="panel" id="ncp">
+        <h2>🖼️ NCP</h2>
+
+        <div class="ncp-gallery">
+            <img src="ncp1.jpg" alt="NCP picture 1">
+            <img src="ncp2.jpg" alt="NCP picture 2">
+            <img src="ncp3.jpg" alt="NCP picture 3">
+            <img src="ncp4.jpg" alt="NCP picture 4">
+            <img src="ncp5.jpg" alt="NCP picture 5">
+            <img src="ncp6.jpg" alt="NCP picture 6">
         </div>
 
-        <div class="detail">
-            <b>Age:</b> 15
-        </div>
-
-        <div class="detail">
-            <b>Skills:</b> Ai Using, Website Creating, App Making
-        </div>
-
-        <div class="detail">
-            <b>FC:</b> Blue
-        </div>
-
-    </div>
+        <button class="close-btn" onclick="closePanels()">Close</button>
+    </section>
 
     <button class="menu-btn logout" onclick="logoutUser()">
-        Logout
+        <span>⇥</span><span>│</span><span>Logout</span>
     </button>
 
+</div>
 </section>
 
 <script>
-
 function loginUser() {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
 
-    const username =
-        document.getElementById("username").value;
-
-    const password =
-        document.getElementById("password").value;
-
-    if (username !== "" && password !== "") {
-
-        document.getElementById("loginPage").style.display =
-            "none";
-
-        document.getElementById("homePage").style.display =
-            "block";
-
+    if (username !== "" && password.trim() !== "") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("homePage").style.display = "block";
     } else {
-
         alert("Please enter Username and Password");
-
     }
 }
 
+function togglePanel(id) {
+    const panel = document.getElementById(id);
+    const wasOpen = panel.classList.contains("active");
 
-function showAbout() {
+    closePanels();
 
-    const about =
-        document.getElementById("about");
-
-    if (about.style.display === "block") {
-
-        about.style.display = "none";
-
-    } else {
-
-        about.style.display = "block";
-
+    if (!wasOpen) {
+        panel.classList.add("active");
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 }
 
-
-function showMessage() {
-
-    alert("Welcome to Nizi Website ✨");
-
+function closePanels() {
+    document.querySelectorAll(".panel").forEach(function(panel) {
+        panel.classList.remove("active");
+    });
 }
-
 
 function logoutUser() {
+    speechSynthesis.cancel();
+    closePanels();
 
-    document.getElementById("homePage").style.display =
-        "none";
-
-    document.getElementById("loginPage").style.display =
-        "flex";
+    document.getElementById("homePage").style.display = "none";
+    document.getElementById("loginPage").style.display = "flex";
 
     document.getElementById("username").value = "";
     document.getElementById("password").value = "";
-
-    document.getElementById("about").style.display =
-        "none";
 }
 
-
-/* ---------- WELCOME SPEECH ---------- */
-
 function playWelcome() {
+    if (!("speechSynthesis" in window)) {
+        alert("Voice is not supported in this browser.");
+        return;
+    }
 
     const welcomeText =
         "Welcome to Nizi Web. " +
@@ -370,9 +521,7 @@ function playWelcome() {
         "Here, you can explore my skills, projects, and creations. " +
         "Thank you for visiting Nizi Web. Have a great day!";
 
-    const speech =
-        new SpeechSynthesisUtterance(welcomeText);
-
+    const speech = new SpeechSynthesisUtterance(welcomeText);
     speech.lang = "en-US";
     speech.volume = 1;
     speech.rate = 0.9;
@@ -382,6 +531,11 @@ function playWelcome() {
     speechSynthesis.speak(speech);
 }
 
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closePanels();
+    }
+});
 </script>
 
 </body>

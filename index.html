@@ -544,5 +544,22 @@ document.addEventListener("keydown", function(event) {
 });
 </script>
 
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" autoplay loop preload="auto">
+    <source src="bg-music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const bgMusic = document.getElementById("bgMusic");
+
+bgMusic.volume = 0.5;
+
+bgMusic.play().catch(() => {
+    document.addEventListener("click", function playMusic() {
+        bgMusic.play();
+    }, { once: true });
+});
+</script>
+
 </body>
 </html>

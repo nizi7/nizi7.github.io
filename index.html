@@ -493,8 +493,29 @@ function loginUser() {
     const password = document.getElementById("password").value;
 
     if (username !== "" && password.trim() !== "") {
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("homePage").style.display = "block";
+document.getElementById("loginPage").style.display = "none";
+
+const intro = document.getElementById("introScreen");
+const video = document.getElementById("introVideo");
+const home = document.getElementById("homePage");
+
+intro.style.display = "block";
+
+bgMusic.pause();
+
+video.muted = true;
+video.currentTime = 0;
+
+video.onended = function() {
+    intro.style.display = "none";
+    home.style.display = "block";
+    bgMusic.play().catch(() => {});
+};
+
+video.play().catch(() => {bgMusic.play().catch(() => {});
+    intro.style.display = "none";
+    home.style.display = "block";
+});
     } else {
         alert("Please enter Username and Password");
     }
